@@ -1,0 +1,82 @@
+%% Core Configuration Layer
+subgraph "Core Configuration"
+    Init[["Entry Point"]]:::core
+    Settings[["Settings Manager"]]:::core
+    Keymaps[["Keymaps Manager"]]:::core
+    Autocommands[["Autocommands Manager"]]:::core
+    LazyInit[["Package Manager Init"]]:::core
+end
+
+%% Plugin Management Layer
+subgraph "Plugin System"
+    LazyNvim["Lazy.nvim"]:::plugin
+    
+    subgraph "Plugin Configurations"
+        LSP["LSP Config"]:::plugin
+        Git["Git Integration"]:::plugin
+        FileNav["File Navigation"]:::plugin
+        Term["Terminal Management"]:::plugin
+        Search["Search Functionality"]:::plugin
+        Complete["Code Completion"]:::plugin
+        UI["UI Enhancements"]:::plugin
+    end
+end
+
+%% Language Support Layer
+subgraph "Language Support"
+    LSPServers["LSP Servers"]:::lang
+    Treesitter["Treesitter Parsers"]:::lang
+    CompEngines["Completion Engines"]:::lang
+    CodeFormat["Formatters"]:::lang
+end
+
+%% UI Components Layer
+subgraph "User Interface"
+    StatusLine["Status Line"]:::ui
+    Explorer["File Explorer"]:::ui
+    FuzzyFind["Fuzzy Finder"]:::ui
+    TerminalUI["Terminal Integration"]:::ui
+    GitUI["Git Signs"]:::ui
+    WhichKey["Which-key Popup"]:::ui
+end
+
+%% Relationships
+Init --> Settings
+Init --> Keymaps
+Init --> Autocommands
+Init --> LazyInit
+
+LazyInit --> LazyNvim
+LazyNvim --> LSP
+LazyNvim --> Git
+LazyNvim --> FileNav
+LazyNvim --> Term
+LazyNvim --> Search
+LazyNvim --> Complete
+LazyNvim --> UI
+
+LSP --> LSPServers
+Complete --> CompEngines
+Git --> GitUI
+FileNav --> Explorer
+Term --> TerminalUI
+Search --> FuzzyFind
+
+%% Click Events
+click Init "init.lua"
+click Settings "lua/sciencevim/settings.lua"
+click Keymaps "lua/sciencevim/keymaps.lua"
+click Autocommands "lua/sciencevim/autocommands.lua"
+click LazyInit "lua/sciencevim/lazy_init.lua"
+click LSP "lua/sciencevim/lazy/lsp.lua"
+click Git "lua/sciencevim/lazy/gitsigns.lua"
+click FileNav "lua/sciencevim/lazy/neo_tree.lua"
+click Term "lua/sciencevim/lazy/toggleterm.lua"
+click Search "lua/sciencevim/lazy/telescope.lua"
+click WhichKey "lua/sciencevim/lazy/which_key.lua"
+
+%% Styles
+classDef core fill:#2196F3,stroke:#1565C0,color:white
+classDef plugin fill:#4CAF50,stroke:#2E7D32,color:white
+classDef lang fill:#FFC107,stroke:#FFA000,color:black
+classDef ui fill:#9C27B0,stroke:#7B1FA2,color:white
