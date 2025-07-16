@@ -45,15 +45,15 @@ vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern
 
--- vim.opt.showtabline = 2                         -- always show tabs
--- vim.opt.smartindent = true                      -- make indenting smarter again
-vim.opt.expandtab = true -- convert tabs to spaces
--- vim.opt.wrap = true                             -- display lines as one long line
-
 vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4 -- insert 4 spaces for a tab
 -- vim.opt.textwidth = 100                         -- set number of columns before wrapping
 -- vim.opt.numberwidth = 4                         -- set number column width to 2 {default 4}
+--
+-- vim.opt.showtabline = 2                         -- always show tabs
+-- vim.opt.smartindent = true                      -- make indenting smarter again
+vim.opt.expandtab = true -- convert tabs to spaces
+-- vim.opt.wrap = true                             -- display lines as one long line
 
 -- vim.opt.foldmethod = "marker",
 -- vim.opt.foldmarker = "{{{,}}}",
