@@ -13,6 +13,7 @@ return {
 		dependencies = {
 			"jmbuhr/otter.nvim",
 			"nvim-treesitter/nvim-treesitter",
+            "neovim/nvim-lspconfig"
 		},
 	},
 	{ -- directly open ipynb files as quarto docuements
