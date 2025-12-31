@@ -52,6 +52,7 @@ vim.opt.expandtab = true -- convert tabs to spaces
 
 vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4 -- insert 4 spaces for a tab
+vim.opt.softtabstop = 4 -- number of spaces that a <Tab> counts for while editing
 -- vim.opt.textwidth = 100                         -- set number of columns before wrapping
 -- vim.opt.numberwidth = 4                         -- set number column width to 2 {default 4}
 
