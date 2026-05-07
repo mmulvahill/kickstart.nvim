@@ -17,13 +17,29 @@ return {
 		end,
 	},
 	{
+		"maxmx03/fluoromachine.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			local fm = require("fluoromachine")
+
+			fm.setup({
+				glow = true,
+				theme = "fluoromachine",
+				transparent = true,
+			})
+
+			vim.cmd.colorscheme("fluoromachine")
+		end,
+	},
+	{
 		"sainnhe/gruvbox-material",
 		lazy = false,
 		priority = 1000,
 		config = function()
 			vim.g.gruvbox_material_enable_italic = true
 			vim.g.gruvbox_material_background = "hard"
-			vim.cmd.colorscheme("gruvbox-material")
+			-- vim.cmd.colorscheme("gruvbox-material")
 		end,
 	},
 }
