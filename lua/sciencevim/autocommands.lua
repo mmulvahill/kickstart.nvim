@@ -82,3 +82,14 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 		end
 	end,
 })
+
+-- Convert ALL existing tabs to spaces on every write
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function()
+		-- silent! so it won't echo "N substitutions on line …"
+		-- Ensure expandtab is set before running retab
+		vim.cmd("silent! set expandtab")
+		vim.cmd("silent! retab")
+	end,
+})
